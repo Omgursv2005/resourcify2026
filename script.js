@@ -58,20 +58,22 @@ const date = new Date().toLocaleDateString()
 
 const { data, error } = await supabaseClient
 .from("bookings")
-.insert([{
+.insert([
+{
 user_email: currentEmail,
 resource_name: name,
 date: date,
 status: "Pending"
-}])
+}
+])
 
 if(error){
-console.log(error)
-alert("Booking failed")
+console.error(error)
+alert("Booking failed. Check console.")
 return
 }
 
-alert("Resource Booked")
+alert("Booking successful!")
 
 loadBookings()
 
