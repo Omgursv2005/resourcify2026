@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RA & BS</title>
-<link rel="stylesheet" href="style.css">
+
+<title>Resourcify</title>
+
+<link rel="stylesheet" href="css/style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js" defer></script>
+
 </head>
 
 <body>
 
-<h1>Resourcify Smart Booking System</h1>
-
 <div class="container">
+
+<h1>Resourcify</h1>
+<p>Smart Resource Allocation & Booking System</p>
+
+<div class="auth-box">
 
 <h2>Register</h2>
 
-<input id="name" placeholder="Name">
+<input id="name" placeholder="Full Name">
 <input id="email" placeholder="Email">
-<button onclick="registerUser()">Register</button>
+<input id="password" type="password" placeholder="Password">
 
-<h2>Resources</h2>
-
-<div id="resources"></div>
-
-<h2>My Bookings</h2>
-
-<div id="bookings"></div>
+<button onclick="register()">Register</button>
 
 </div>
 
-<script src="script.js"></script>
+<div class="auth-box">
+
+<h2>Login</h2>
+
+<input id="login_email" placeholder="Email">
+<input id="login_password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+</div>
 
 </body>
 </html>
