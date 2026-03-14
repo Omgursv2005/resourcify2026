@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/resources.js"></script>
+<script src="js/bookings.js"></script>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h2>Resourcify</h2>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<h3>Menu</h3>
+
+<button onclick="loadResources()">Resources</button>
+<button onclick="loadBookings()">My Bookings</button>
+
+</div>
+
+<div class="main">
+
+<h2>Dashboard</h2>
+
+<div id="content"></div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
