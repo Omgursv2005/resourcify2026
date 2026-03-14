@@ -52,31 +52,37 @@ document.getElementById("resources").innerHTML = html
 
 }
 
-async function bookResource(name){
+async function bookResource(resourceId) {
+  const email = document.getElementById("email").value;
 
-const date = new Date().toLocaleDateString()
+  // get user
+  const { data: user } = await supabase
+    .from("users")
+    .select("id")
+    .eq("email", email)
+    .single();
 
-const { data, error } = await supabaseClient
-.from("bookings")
-.insert([
-{
-user_email: currentEmail,
-resource_name: name,
-date: date,
-status: "Pending"
-}
-])
+  if (!user) {
+    alert("User not found. Please register first.");
+    return;
+  }
 
-if(error){
-console.error(error)
-alert("Booking failed. Check console.")
-return
-}
+  const { error } = await supabase.from("bookings").insert([
+    {
+      user_id: user.id,
+      resource_id: resourceId,
+      date: new Date().toISOString().split("T")[0],
+      status: "Pending"
+    }
+  ]);
 
-alert("Booking successful!")
-
-loadBookings()
-
+  if (error) {
+    console.error(error);
+    alert("Booking failed.");
+  } else {
+    alert("Booking successful!");
+    loadBookings();
+  }
 }
 
 async function loadBookings(){
