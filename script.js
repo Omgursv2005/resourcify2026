@@ -42,7 +42,7 @@ data.forEach(r=>{
 html += `
 <div class="resource">
 ${r.name} (${r.type})
-<button onclick="bookResource('${r.name}')">Book</button>
+<button onclick="bookResource('${resource.id}')">Book</button>
 </div>
 `
 
